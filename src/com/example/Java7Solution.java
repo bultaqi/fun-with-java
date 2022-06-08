@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class MainClass {
+public class Java7Solution {
 
 	public static void main(String[] args) {
 		
@@ -28,18 +28,28 @@ public class MainClass {
 		
 		
 		// Step 2: Create a method that prints all the elements in the list
+		System.out.println("Printing all persons");
 		printAll(people);
 		
 		
 		// Step 3: Create a method that prints all people that have last name beginning with C
-		printLastNameBeginningWithC(people);
+		System.out.println("Printing all persons beginning with C");
+		printConditionally(people, new Condition() {
+
+			@Override
+			public boolean test(Person p) {
+				return p.getLastName().startsWith("C");
+			}
+			
+			
+		});
 		
 		
 		}
 	
-		private static void printLastNameBeginningWithC(List<Person> people) {
+		private static void printConditionally(List<Person> people, Condition condition) {
 			for (Person p : people) {
-				if (p.getLastName().startsWith("C")) {
+				if (condition.test(p)) {
 					System.out.println(p);
 				}
 			}
@@ -52,4 +62,10 @@ public class MainClass {
 			
 		}
 
+}
+
+
+
+interface Condition {
+	boolean test(Person p);
 }
