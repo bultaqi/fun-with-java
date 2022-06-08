@@ -32,8 +32,19 @@ public class MainClass {
 		
 		
 		// Step 3: Create a method that prints all people that have last name beginning with C
+		printLastNameBeginningWithC(people);
+		
+		
 		}
 	
+		private static void printLastNameBeginningWithC(List<Person> people) {
+			for (Person p : people) {
+				if (p.getLastName().startsWith("C")) {
+					System.out.println(p);
+				}
+			}
+		}
+
 		private static void printAll(List<Person> people) {
 			for (Person p : people) {
 				System.out.println(p);
