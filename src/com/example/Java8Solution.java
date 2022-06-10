@@ -2,8 +2,8 @@ package com.example;
 
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class Java8Solution {
 	
@@ -36,9 +36,16 @@ public class Java8Solution {
 		
 		}
 	
-		private static void printConditionally(List<Person> people, Condition condition) {
+	
+		// Predicate is an out of the box functional interface from the Java 8 version
+		// Functional Interfaces provide target types for Lambda expressions and method references 
+		// The first step in creating a lambda expression is to create an interface for it (unless there is one already to use)
+		// Step two is to define a method in that interface with the same signature as the expression 
+	
+		
+		private static void printConditionally(List<Person> people, Predicate<Person> predicate) {
 			for (Person p : people) {
-				if (condition.test(p)) {
+				if (predicate.test(p)) {
 					System.out.println(p);
 				}
 			}
